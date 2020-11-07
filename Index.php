@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programacion WEB Tarea Registro de estudiantes ITLA con POO</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-     <link rel="stylesheet" href="Style.css">
+     <link rel="stylesheet" href="Css/Style.css">
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 </head>
 <body>
@@ -126,11 +126,10 @@
     <th>Materias</th>
     <th>Foto</th>
     <th></th>
-
   </thead>
   <tbody>
     <tr>
-			<td><?php echo $_COOKIE["Nombre"];?></td>
+			<td><?php echo $_COOKIE["Apellido"];?></td>
 			<td><?php echo $_COOKIE["Apellido"];?></td>
 			<td><?php echo $_COOKIE["Status"];?></td>
 			<td><?php echo $_COOKIE["Carrera"];?></td>
