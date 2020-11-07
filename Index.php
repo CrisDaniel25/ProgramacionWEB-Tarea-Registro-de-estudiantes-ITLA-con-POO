@@ -22,6 +22,8 @@
 <div class="row">
 
 <form action="Create.php" method="post">
+<div class="row">
+<div class="col-sm">
 <div class="form-group">
   <div class="input-group">
     <div class="input-group-prepend">
@@ -32,7 +34,9 @@
     <input class="form-control" placeholder="Nombre" name="nombre" type="text">
   </div>
 </div>
+</div>
 
+<div class="col-sm">
 <div class="form-group">
   <div class="input-group">
     <div class="input-group-prepend">
@@ -43,12 +47,18 @@
     <input class="form-control" placeholder="Apellido" name="apellido" type="text">
   </div>
 </div>
+</div>
+</div>
 
+<div class="row">
+<div class="col-sm">
 <div class="form-group">  
   <input type="radio" name="status" value="Activo"> Activo 
   <input type="radio" name="status" value="Inactivo"> Inactivo 
 </div> 
+</div>
 
+<div class="col-sm">
 <div class="form-group">
   <div class="input-group">
     <div class="input-group-prepend">
@@ -59,33 +69,73 @@
     <input class="form-control" name="carrera" placeholder="Carrera" type="text">
   </div>
 </div>
-<button type="submit" name="create" value="Create" class="btn btn-success">
+</div>
+</div>
+
+<div class="row">
+<div class="col-sm">
+<div class="form-group">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <div class="input-group-text bg-white">
+        <i class="fas fa-university"></i>
+      </div>
+    </div>
+    <input class="form-control" name="materia" placeholder="Materia" type="text">
+  </div>
+</div>
+</div>
+
+<div class="col-sm">
+<div class="form-group">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <div class="input-group-text bg-white">
+        <i class="fas fa-university"></i>
+      </div>
+    </div>
+    <input class="form-control" name="foto" placeholder="Foto" type="text">
+  </div>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-sm">
+<button type="submit" name="create" value="Create" class="btn btn-success btn-lg btn-block">
   <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-archive-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"/>
   </svg>
 </button>
-<button type="reset" value="Clear" class="btn btn-danger"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+</div>
+<div class="col-sm">
+<button type="reset" value="Clear" class="btn btn-danger btn-lg btn-block"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
 </svg>
 </button>
+</div>
+</div>
 </form>
 
 <table class="table table-hover">
 	<thead class="thead-dark">
     <th>Nombre</th>
+    <th>Apellido</th>
     <th>Status</th>
     <th>Carrera</th>
     <th>Materias</th>
     <th>Foto</th>
     <th></th>
-    <th></th>
+
   </thead>
   <tbody>
     <tr>
-			<td><?php echo $_COOKIE["username"];?></td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td><?php echo $_COOKIE["Nombre"];?></td>
+			<td><?php echo $_COOKIE["Apellido"];?></td>
+			<td><?php echo $_COOKIE["Status"];?></td>
+			<td><?php echo $_COOKIE["Carrera"];?></td>
+      <td><?php echo $_COOKIE["Materia"];?></td>
+      <td><?php echo $_COOKIE["Foto"];?></td>
       <td>
 <a href="Delete.php?id=<?php echo $key;?>" class="btn btn-danger"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
