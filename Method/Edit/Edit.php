@@ -24,9 +24,25 @@
 </nav>
 </header>
 
+<?php
+require_once '../../Service/IService.php';
+require_once '../../Student/StudentServiceCookies.php';
+require_once '../../Student/Student.php';
+
+  $Student = new StudentServiceCookies();
+
+  $isContainid = isset($_GET['id']);
+
+  if ($isContainid) {
+    $studentID = $_GET['id'];
+  }
+  
+  $editData =  $Student->GetList();
+?>
+
 <div class="container">
 
-<form action="Update.php" method="post">
+<form action="Update.php?id=<?php echo $studentID;?>" method="post">
 <div class="row">
 <div class="col-sm">
 <div class="form-group">
@@ -36,12 +52,10 @@
         <i class="fas fa-user-circle"></i>
       </div>
     </div>
-    <input class="form-control" placeholder="Nombre" name="nombre" type="text">
+    <input class="form-control" placeholder="Nombre" name="nombre" value="<?php echo $editData->nombre;?>" type="text">
   </div>
 </div>
-</div>
 
-<div class="col-sm">
 <div class="form-group">
   <div class="input-group">
     <div class="input-group-prepend">
@@ -49,7 +63,45 @@
         <i class="fas fa-user-circle"></i>
       </div>
     </div>
-    <input class="form-control" placeholder="Apellido" name="apellido" type="text">
+    <input class="form-control" placeholder="Apellido" name="apellido" value="<?php echo $editData->apellido;?>" type="text">
+  </div>
+</div>
+
+<div class="form-group">
+<label>Status</label>
+<?php 
+					if($editData->estatus == "Activo"){
+				 ?>
+                 <input type="radio" checked="checked" name="estatus" value="Activo"> Activo 
+				<?php 
+					}else{
+				 ?>
+				 <input type="radio" name="estatus" value="Activo"> Activo 
+				 <?php 
+					}
+				  ?>
+				  <?php 
+				  if($editData->estatus == "Inactivo"){
+				   ?>
+				<input type="radio" checked="checked" name="estatus" value="Inactivo"> Inactivo
+				<?php 
+				  }else{
+				 ?>
+				 <input type="radio" name="estatus" value="Inactivo"> Inactivo
+				 <?php 
+				  }
+				  ?>
+</div>
+
+<div class="col-sm">
+<div class="form-group">
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <div class="input-group-text bg-white">
+        <i class="fas fa-university"></i>
+      </div>
+    </div>
+    <input class="form-control" name="carrera" placeholder="Carrera" value="<?php echo $editData->carrera;?>" type="text">
   </div>
 </div>
 </div>
@@ -57,13 +109,6 @@
 
 <div class="row">
 <div class="col-sm">
-<div class="form-group">  
-  <input type="radio" name="estatus" value="Activo"> Activo 
-  <input type="radio" name="estatus" value="Inactivo"> Inactivo 
-</div> 
-</div>
-
-<div class="col-sm">
 <div class="form-group">
   <div class="input-group">
     <div class="input-group-prepend">
@@ -71,22 +116,7 @@
         <i class="fas fa-university"></i>
       </div>
     </div>
-    <input class="form-control" name="carrera" placeholder="Carrera" type="text">
-  </div>
-</div>
-</div>
-</div>
-
-<div class="row">
-<div class="col-sm">
-<div class="form-group">
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <div class="input-group-text bg-white">
-        <i class="fas fa-university"></i>
-      </div>
-    </div>
-    <input class="form-control" name="materias" placeholder="Materia" type="text">
+    <input class="form-control" name="materias" placeholder="Materia" value="<?php echo $editData->materias;?>" type="text">
   </div>
 </div>
 </div>
@@ -99,7 +129,7 @@
         <i class="fas fa-university"></i>
       </div>
     </div>
-    <input class="form-control" name="fotoPerfil" placeholder="Foto" type="text">
+    <input class="form-control" name="fotoPerfil" placeholder="Foto" value="<?php echo $editData->fotoPerfil;?>" type="text">
   </div>
 </div>
 </div>
