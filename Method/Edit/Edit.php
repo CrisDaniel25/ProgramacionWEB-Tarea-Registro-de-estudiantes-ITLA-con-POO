@@ -37,7 +37,7 @@ require_once '../../Student/Student.php';
     $studentID = $_GET['id'];
   }
   
-  $editData =  $Student->GetList();
+  $editData =  $Student->GetById($studentID);
 ?>
 
 <div class="container">
@@ -52,10 +52,12 @@ require_once '../../Student/Student.php';
         <i class="fas fa-user-circle"></i>
       </div>
     </div>
-    <input class="form-control" placeholder="Nombre" name="nombre" value="<?php echo $editData->nombre;?>" type="text">
+    <input class="form-control" placeholder="Nombre" name="nombre" type="text">
   </div>
 </div>
+</div>
 
+<div class="col-sm">
 <div class="form-group">
   <div class="input-group">
     <div class="input-group-prepend">
@@ -63,34 +65,18 @@ require_once '../../Student/Student.php';
         <i class="fas fa-user-circle"></i>
       </div>
     </div>
-    <input class="form-control" placeholder="Apellido" name="apellido" value="<?php echo $editData->apellido;?>" type="text">
+    <input class="form-control" placeholder="Apellido" name="apellido" type="text">
   </div>
 </div>
+</div>
+</div>
 
-<div class="form-group">
-<label>Status</label>
-<?php 
-					if($editData->estatus == "Activo"){
-				 ?>
-                 <input type="radio" checked="checked" name="estatus" value="Activo"> Activo 
-				<?php 
-					}else{
-				 ?>
-				 <input type="radio" name="estatus" value="Activo"> Activo 
-				 <?php 
-					}
-				  ?>
-				  <?php 
-				  if($editData->estatus == "Inactivo"){
-				   ?>
-				<input type="radio" checked="checked" name="estatus" value="Inactivo"> Inactivo
-				<?php 
-				  }else{
-				 ?>
-				 <input type="radio" name="estatus" value="Inactivo"> Inactivo
-				 <?php 
-				  }
-				  ?>
+<div class="row">
+<div class="col-sm">
+<div class="form-group">  
+  <input type="radio" name="estatus" value="Activo"> Activo 
+  <input type="radio" name="estatus" value="Inactivo"> Inactivo 
+</div> 
 </div>
 
 <div class="col-sm">
@@ -101,7 +87,7 @@ require_once '../../Student/Student.php';
         <i class="fas fa-university"></i>
       </div>
     </div>
-    <input class="form-control" name="carrera" placeholder="Carrera" value="<?php echo $editData->carrera;?>" type="text">
+    <input class="form-control" name="carrera" placeholder="Carrera" type="text">
   </div>
 </div>
 </div>
@@ -116,7 +102,7 @@ require_once '../../Student/Student.php';
         <i class="fas fa-university"></i>
       </div>
     </div>
-    <input class="form-control" name="materias" placeholder="Materia" value="<?php echo $editData->materias;?>" type="text">
+    <input class="form-control" name="materias" placeholder="Materia" type="text">
   </div>
 </div>
 </div>
@@ -129,7 +115,7 @@ require_once '../../Student/Student.php';
         <i class="fas fa-university"></i>
       </div>
     </div>
-    <input class="form-control" name="fotoPerfil" placeholder="Foto" value="<?php echo $editData->fotoPerfil;?>" type="text">
+    <input class="form-control" name="fotoPerfil" placeholder="Foto" type="text">
   </div>
 </div>
 </div>

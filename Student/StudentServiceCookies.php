@@ -33,8 +33,8 @@
             $student = new Student();
 
             $ListStudent = $this->GetList();
-            $elementDecode = $this->student->searchProperty($ListStudent,'id',$id)[0];
-            $student->set($elementDecode);
+            // $elementDecode = $this->student->getIndexElement($ListStudent,'id',$id);
+            // $student->set($elementDecode);
             return $student;
         }
 

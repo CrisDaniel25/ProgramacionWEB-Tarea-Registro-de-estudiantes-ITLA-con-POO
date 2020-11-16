@@ -28,17 +28,15 @@
             return time() + 60 * 60 * 24 * 30;
         }
 
-        public function searchProperty($list, $property, $value) {
+        public function searchProperty($list, $value) {
             
-            $filter = [];
-
             foreach ($list as $item) {
-                if ($item->property == $value) {
-                    array_push($filter, $item);
+                if ($item->id == $value) {
+                    $filter = $value;
                 }
             }
 
-            return $filter;
+            return 1;
         }
 
         public function getIndexElement($list, $property, $value) {
@@ -46,7 +44,7 @@
             $index = 0;
 
             foreach ($list as $key => $item) {
-                if ($item->$property == $value) {
+                if ($item->id == $value) {
                     $index = $key;
                 }
             }
