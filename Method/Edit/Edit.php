@@ -31,13 +31,13 @@ require_once '../../Student/Student.php';
 
   $Student = new StudentServiceCookies();
 
-  $isContainid = isset($_GET['id']);
-
-  if ($isContainid) {
-    $studentID = $_GET['id'];
-  }
+  $list = $Student->GetList();
   
-  $editData =  $Student->GetById($studentID);
+  foreach ($list as $editData => $value) {
+    if (condition) {
+      # code...
+    }
+  }
 ?>
 
 <div class="container">
@@ -52,7 +52,7 @@ require_once '../../Student/Student.php';
         <i class="fas fa-user-circle"></i>
       </div>
     </div>
-    <input class="form-control" placeholder="Nombre" name="nombre" type="text">
+    <input class="form-control" placeholder="Nombre" name="nombre" value="<?php echo $editData->nombre;?>" type="text">
   </div>
 </div>
 </div>
