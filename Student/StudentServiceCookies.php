@@ -12,7 +12,14 @@
             $ListStudent = array();
 
             if (isset($_COOKIE[$this->cookieName])) {
-                $ListStudent = json_decode($_COOKIE[$this->cookieName],false);
+                $ListStudentDecode = json_decode($_COOKIE[$this->cookieName],true);
+
+                foreach ($ListStudentDecode as $elementDecode) {
+                    $element = new Student();
+                    $element->set($elementDecode);
+
+                    array_push($ListStudent, $element);
+                }
             }
             else {
                 setcookie($this->cookieName, json_encode($ListStudent), $student->GetCookieTime(), "/");
@@ -46,8 +53,7 @@
 
             array_push($ListStudent,$entity);
 
-            echo '<p>Hola</p>';
-             setcookie($this->cookieName, json_encode($ListStudent), $student->GetCookieTime(), "/");
+            setcookie($this->cookieName, json_encode($ListStudent), $student->GetCookieTime(), "/");
         }
 
         public function Update($id, $entity) {
