@@ -45,8 +45,8 @@
             $studentID = 1;
             
             if (!empty($ListStudent)) {
-                $LastStudent = $this->getLastElement($ListStudent);
-                $studentID = $LastStudent->id + 1;
+                $LastStudent = count($ListStudent);
+                $studentID = $LastStudent + 1;
             }
             
             $entity->id = $studentID;
@@ -75,9 +75,9 @@
 
             $ListStudent = $this->GetList();
 
-            $elementIndex = $this->student->getIndexElement($ListStudent,'id',$id);
+            // $elementIndex = $this->student->getIndexElement($ListStudent,'id',$id);
 
-            unset($ListStudent[$elementIndex]);
+            unset($ListStudent[$id]);
 
             $ListStudent = array_values($ListStudent);
 

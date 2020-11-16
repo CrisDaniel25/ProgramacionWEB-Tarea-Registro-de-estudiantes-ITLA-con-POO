@@ -41,13 +41,6 @@
             return $filter;
         }
 
-        public function GetLastElement($list) {
-            $countList = count($list);
-            $lastElement = $list[$countList - 1];
-
-            return $lastElement;
-        }
-
         public function getIndexElement($list, $property, $value) {
 
             $index = 0;
