@@ -2,13 +2,9 @@
     class StudentServiceCookies implements IService {
         
         private $student;
-        private $cookieName;
+        private $cookieName = "Student";
 
-        public function __construct() {
-
-            $this->student = new Student();
-            $this->cookieName = "Student";
-        }
+        public function __construct() { }
 
         public function GetList() {
 
@@ -27,6 +23,8 @@
 
         public function GetById($id) {
 
+            $student = new Student();
+
             $ListStudent = $this->GetList();
             $elementDecode = $this->student->searchProperty($ListStudent,'id',$id)[0];
             $student->set($elementDecode);
@@ -35,6 +33,7 @@
 
         public function Add($entity) {
 
+            $student = new Student();
             $ListStudent = $this->GetList();
             $studentID = 1;
             
@@ -47,12 +46,13 @@
 
             array_push($ListStudent,$entity);
 
-            echo '<p>dasdsa</p>';
-            // setcookie($this->cookieName, json_encode($ListStudent), $student->GetCookieTime(), "/");
+            echo '<p>Hola</p>';
+             setcookie($this->cookieName, json_encode($ListStudent), $student->GetCookieTime(), "/");
         }
 
         public function Update($id, $entity) {
 
+            $student = new Student();
             $element = $this->GetById($id);
             $ListStudent = $this->GetList();
             
@@ -64,6 +64,8 @@
         }
 
         public function Delete($id) {
+
+            $student = new Student();
 
             $ListStudent = $this->GetList();
 

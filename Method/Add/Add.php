@@ -5,16 +5,21 @@ require_once '../../Student/Student.php';
 
 $service = new StudentServiceCookies();
 
-if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['status']) && isset($_POST['carrera']) && isset($_POST['materia']) && isset($_POST['foto'])) {
+if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['estatus']) && isset($_POST['carrera']) && isset($_POST['materias']) && isset($_POST['fotoPerfil'])) {
 
     $newStudent = new Student();
 
-    $newStudent->Initialize(0, $_POST['nombre'], $_POST['apellido'], $_POST['status'], $_POST['carrera'], $_POST['materia'], $_POST['foto']);
+    $newStudent->Initialize(0, $_POST['nombre'], $_POST['apellido'], $_POST['estatus'], $_POST['carrera'], $_POST['materias'], $_POST['fotoPerfil']);
 
     $service->Add($newStudent);
-    echo "<p>dasdasd</p>";
+    echo "<p>$newStudent->nombre</p>";
+    echo "<p>$newStudent->apellido</p>";
+    echo "<p>$newStudent->estatus</p>";
+    echo "<p>$newStudent->carrera</p>";
+    echo "<p>$newStudent->materias</p>";
+    echo "<p>$newStudent->fotoPerfil</p>";
 
-    // header("Location: ../../Index.php");
+    header("location: ../../Index.php");
     // exit();
 }
 ?>
