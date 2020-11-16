@@ -19,5 +19,46 @@
             $this->materias = $materias;
             $this->fotoPerfil = $fotoPerfil;
         }
+
+        public function set($data) {
+            foreach ($data as $key => $value) $this->{$key} = $value;
+        }
+
+        public function GetCookieTime() {
+            return time() + 60 * 60 * 24 * 30;
+        }
+
+        public function searchProperty($list, $property, $value) {
+            
+            $filter = [];
+
+            foreach ($list as $item) {
+                if ($item->property == $value) {
+                    array_push($filter, $item);
+                }
+            }
+
+            return $filter;
+        }
+
+        public function GetLastElement($list) {
+            $countList = count($list);
+            $lastElement = $list[$countList - 1];
+
+            return $lastElement;
+        }
+
+        public function getIndexElement($list, $property, $value) {
+
+            $index = 0;
+
+            foreach ($list as $key => $item) {
+                if ($item->$property == $value) {
+                    $index = $key;
+                }
+            }
+
+            return $index;
+        }
     }
 ?>

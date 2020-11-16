@@ -14,7 +14,6 @@
   <a class="navbar-brand" id="tittle">
   Programacion WEB Tarea Registro de estudiantes ITLA con POO
   <span>  By Cristopher Figueroa | Matricula: 2018-6186</span>
-  --- Tarea no completada como fue requerida
   </a>
 </nav>
 </header>
@@ -22,7 +21,7 @@
 <div class="container">
 <div class="row">
 
-<form action="Create.php" method="post">
+<form action="Method/Add/Add.php" method="post">
 <div class="row">
 <div class="col-sm">
 <div class="form-group">
