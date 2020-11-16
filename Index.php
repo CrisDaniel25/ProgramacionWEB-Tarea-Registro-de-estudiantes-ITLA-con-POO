@@ -8,7 +8,7 @@
   
   $ListStudent = $service->GetList();
 
-  var_dump($listStudent);
+  var_dump($ListStudent);
   // if (!empty($ListStudent)) {
     
   //   if (isset($_GET['id'])) {

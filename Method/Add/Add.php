@@ -14,5 +14,6 @@ if (isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['estatu
     $service->Add($newStudent);
 
     header("location: ../../Index.php");
+    exit();
 }
 ?>
